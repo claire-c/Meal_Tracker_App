@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">Bottom Nav Practice</string>
     <string name="title_home">Hey, food lover</string>
+    <string name="title_main">Home</string>
     <string name="title_see_stats">Check out your meal stats:</string>
     <string name="title_add_food">Add food</string>
     <string name="title_food_list">Logged food</string>
     <string name="title_select_dates">Select dates</string>
+    <string name="total_breakfasts"> Total breakfasts logged</string>
+    <string name="total_lunches"> Total lunches logged</string>
+    <string name="total_dinners"> Total dinners logged</string>
+    <string name="total_snacks"> Total snacks logged</string>
+    <string name="addfood_input_food">What did you eat?</string>
 </resources>
