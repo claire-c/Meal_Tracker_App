@@ -36,6 +36,7 @@ public class FoodRecord {
         loggedFood = newLoggedFood;
     }
 
+    //This is a nonsense function - think I will refactor to count through arrayList and pass in an argument so that it will work for all meal types.
     public HashMap<MealType, Integer> getLoggedMeals(ArrayList<Food> foodToCount) {
         HashMap<MealType, Integer> loggedMeals = new HashMap<>();
         Integer breakfast = 0;
