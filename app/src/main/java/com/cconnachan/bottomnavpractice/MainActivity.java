@@ -1,5 +1,6 @@
 package com.cconnachan.bottomnavpractice;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -8,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, FoodItemDetailFragment.OnFragmentInteractionListener {
 
 
     @Override
@@ -57,5 +58,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
 
         return loadFragment(fragment);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+        //empty
     }
 }
