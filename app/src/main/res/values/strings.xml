@@ -12,4 +12,10 @@
     <string name="total_snacks"> Total snacks logged</string>
     <string name="addfood_input_food">What did you eat?</string>
     <string name="addfood_input_date">Date to log</string>
+    <string-array name="meal_types">
+        <item>Breakfast</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+        <item>Snack</item>
+    </string-array>
 </resources>
