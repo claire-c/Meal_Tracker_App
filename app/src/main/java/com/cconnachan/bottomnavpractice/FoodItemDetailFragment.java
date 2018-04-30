@@ -27,7 +27,9 @@ public class FoodItemDetailFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private Food mParam1;
     private String mParam2;
-    TextView textView;
+    TextView foodNameTextView;
+    TextView dateLoggedTextView;
+    TextView mealTypeTextView;
 
     private OnFragmentInteractionListener mListener;
 
@@ -68,8 +70,14 @@ public class FoodItemDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View viewToInflate = inflater.inflate(R.layout.fragment_food_item_detail, container, false);
-        textView = viewToInflate.findViewById(R.id.FoodItemDetailFragmentTextViewId);
-        textView.setText(mParam1.getName());
+        foodNameTextView = viewToInflate.findViewById(R.id.mealNameFoodItemDetailFragmentTextViewId);
+        foodNameTextView.setText(mParam1.getName());
+
+        dateLoggedTextView = viewToInflate.findViewById(R.id.dateLoggedFoodItemDetailTextViewId);
+        dateLoggedTextView.setText(mParam1.getDate().toString());
+
+        mealTypeTextView = viewToInflate.findViewById(R.id.mealTypeFoodItemDetailTextViewId);
+        mealTypeTextView.setText(mParam1.getMealType().toString());
 
         return viewToInflate;
     }
