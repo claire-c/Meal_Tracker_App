@@ -14,7 +14,7 @@
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/foodInputTextViewId"
         android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -23,4 +23,25 @@
         android:ems="10"
         android:hint="@string/addfood_input_food"
         android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/dateInputTextViewId"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/addFoodTextViewId"
+        android:layout_marginTop="161dp"
+        android:ems="10"
+        android:hint="@string/addfood_input_date"
+        android:inputType="date" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/addFoodTextViewId"
+        android:layout_marginBottom="206dp"
+        android:text="RadioButton" />
+
 </RelativeLayout>

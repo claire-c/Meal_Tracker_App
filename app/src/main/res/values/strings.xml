@@ -11,4 +11,5 @@
     <string name="total_dinners"> Total dinners logged</string>
     <string name="total_snacks"> Total snacks logged</string>
     <string name="addfood_input_food">What did you eat?</string>
+    <string name="addfood_input_date">Date to log</string>
 </resources>
