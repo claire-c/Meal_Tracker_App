@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/food" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/totalBreakfastsId"
         android:layout_width="293dp"
         android:layout_height="44dp"
         android:layout_alignParentBottom="true"
@@ -43,7 +43,7 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/totalLunchesId"
         android:layout_width="293dp"
         android:layout_height="44dp"
         android:layout_alignParentBottom="true"
@@ -53,7 +53,7 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/totalDinnersId"
         android:layout_width="293dp"
         android:layout_height="44dp"
         android:layout_alignParentBottom="true"
@@ -63,7 +63,7 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/totalSnacksId"
         android:layout_width="293dp"
         android:layout_height="44dp"
         android:layout_alignParentBottom="true"

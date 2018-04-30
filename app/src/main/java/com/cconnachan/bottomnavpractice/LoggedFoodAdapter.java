@@ -33,6 +33,8 @@ public class LoggedFoodAdapter extends ArrayAdapter<Food> {
         TextView mealType = (TextView) listItemView.findViewById(R.id.foodMealTypeId);
         mealType.setText(currentFoodItem.getMealType().toString());
 
+        listItemView.setTag(currentFoodItem);
+
         return listItemView;
     }
 
