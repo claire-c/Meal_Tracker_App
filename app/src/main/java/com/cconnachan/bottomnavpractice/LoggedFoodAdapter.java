@@ -28,10 +28,10 @@ public class LoggedFoodAdapter extends ArrayAdapter<Food> {
         foodName.setText(currentFoodItem.getName().toString());
 
         TextView foodDate = (TextView) listItemView.findViewById(R.id.foodItemDateId);
-        foodName.setText(currentFoodItem.getDate().toString());
+        foodDate.setText(currentFoodItem.getDate().toString());
 
         TextView mealType = (TextView) listItemView.findViewById(R.id.foodMealTypeId);
-        foodName.setText(currentFoodItem.getMealType().toString());
+        mealType.setText(currentFoodItem.getMealType().toString());
 
         return listItemView;
     }

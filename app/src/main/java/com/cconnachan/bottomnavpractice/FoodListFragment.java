@@ -23,6 +23,8 @@ public class FoodListFragment extends Fragment {
 
         FoodRecord foodRecord = new FoodRecord();
         Food chips = new Food("chips", "18/03/2018", MealType.BREAKFAST);
+        Food lasagne = new Food("lasagne", "12/04/2017", MealType.DINNER);
+        foodRecord.addFood(lasagne);
         foodRecord.addFood(chips);
         ArrayList<Food> loggedFood = foodRecord.getLoggedFood();
 
