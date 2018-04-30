@@ -64,8 +64,23 @@
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="368dp"
-        android:layout_height="22dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="230dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseMealTypeTextViewId" />
+
+    <TextView
+        android:id="@+id/chooseMealTypeTextViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Choose meal type:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateInputTextViewId" />
 
 </android.support.constraint.ConstraintLayout>
