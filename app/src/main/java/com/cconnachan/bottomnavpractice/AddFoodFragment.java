@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,13 +21,14 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
 
     Spinner spinner;
     ArrayAdapter<CharSequence> spinnerAdapter;
+    View viewToInflate;
+    String mealTypeSelected;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-
-        View viewToInflate = inflater.inflate(R.layout.fragment_add_food, null);
+        viewToInflate = inflater.inflate(R.layout.fragment_add_food, null);
 
 
 
@@ -48,8 +50,8 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
                 //This is a toast that will pop up when the dropdown item is selected.
                 Toast.makeText(getContext(), parent.getItemAtPosition(position) + " is selected", Toast.LENGTH_SHORT).show();
 
+                String mealTypeSelected = (String) parent.getItemAtPosition(position);
 
-                //Need to add more to this - need to hook up the spinner to the object.
 
 
             }
@@ -74,6 +76,7 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
     }
 
 
+
     //For button onClick
     @Override
     public void onClick(View view) {
@@ -85,6 +88,30 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
         }
     }
 
+    public String getFoodName(){
+        TextView name = viewToInflate.findViewById(R.id.foodInputTextViewId);
+        String foodName = (String) name.getText();
+        return foodName;
+    }
+
+    public String getFoodDate(){
+        TextView date = viewToInflate.findViewById(R.id.dateInputTextViewId);
+        String foodDate = (String) date.getText();
+        return foodDate;
+    }
+
+    public MealType getMealType()
+    {   String spinnerResult = ""; //Need to figure out how to get back the spinner result. It is currently a string.
+        MealType mealTypeToReturn = null;
+
+        for (MealType meal : MealType.values()) {
+            if (spinnerResult == meal.getEnumMealName()){
+                mealTypeToReturn = meal;
+            }
+        }
+
+        return mealTypeToReturn;
+    }
 
 
 }
