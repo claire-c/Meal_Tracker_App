@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, FoodItemDetailFragment.OnFragmentInteractionListener, IFoodRecordable {
 
     private FoodRecord foodRecord;
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
-        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+        sharedPref = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
         String foodRecordAsJSON = sharedPref.getString("FoodRecord", "{}");
 
-        //New Gson thing
+
         Gson gson = new Gson();
         //This is deserializing the JSON format into a FoodRecord object.
         foodRecord = gson.fromJson(foodRecordAsJSON, FoodRecord.class);
@@ -77,13 +78,21 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         //empty
     }
 
+    //This is returning the foodRecord object, and the method is visible within fragments.
     @Override
     public FoodRecord getFoodRecord(){
         return foodRecord;
     }
 
+    //This is to save the updated foodRecord object. The foodRecord object is serialized into JSon and then sent back to shared preferences.
     @Override
     public void persistFoodRecord(){
+
+        Gson gson = new Gson();
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        editor.putString("FoodRecord", gson.toJson(foodRecord));
+        editor.apply();
 
     }
 }

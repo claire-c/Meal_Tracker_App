@@ -24,12 +24,15 @@ public class HomeFragment extends Fragment {
 
         View viewToInflate = inflater.inflate(R.layout.fragment_home, null);
 
-        FoodRecord foodRecord = new FoodRecord();
-        Food chips = new Food("chips", "18/03/2018", MealType.BREAKFAST);
-        Food lasagne = new Food("lasagne", "12/04/2017", MealType.DINNER);
-        foodRecord.addFood(lasagne);
-        foodRecord.addFood(chips);
-        ArrayList<Food> loggedFood = foodRecord.getLoggedFood();
+//        FoodRecord foodRecord = new FoodRecord();
+//        Food chips = new Food("chips", "18/03/2018", MealType.BREAKFAST);
+//        Food lasagne = new Food("lasagne", "12/04/2017", MealType.DINNER);
+//        foodRecord.addFood(lasagne);
+//        foodRecord.addFood(chips);
+//        ArrayList<Food> loggedFood = foodRecord.getLoggedFood();
+
+        IFoodRecordable mainActivity = (IFoodRecordable) getActivity();
+        FoodRecord foodRecord = mainActivity.getFoodRecord();
 
         breakfastsLogged = viewToInflate.findViewById(R.id.totalBreakfastsId);
         lunchesLogged = viewToInflate.findViewById(R.id.totalLunchesId);

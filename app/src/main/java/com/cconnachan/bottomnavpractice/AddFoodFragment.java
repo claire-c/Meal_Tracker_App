@@ -89,7 +89,7 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
                 FoodRecord foodRecord = mainActivity.getFoodRecord();
                 foodRecord.addFood(foodToAdd);
 
-//                mainActivity.persistFoodRecord();
+                mainActivity.persistFoodRecord();
 
                 Toast.makeText(getContext(), R.string.addfood_toast_confirmation,
                         Toast.LENGTH_SHORT).show();
