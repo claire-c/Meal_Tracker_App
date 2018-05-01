@@ -30,7 +30,7 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
 
         viewToInflate = inflater.inflate(R.layout.fragment_add_food, null);
 
-
+        mealTypeSelected = null;
 
         //SPINNER
 
@@ -50,7 +50,7 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
                 //This is a toast that will pop up when the dropdown item is selected.
                 Toast.makeText(getContext(), parent.getItemAtPosition(position) + " is selected", Toast.LENGTH_SHORT).show();
 
-                String mealTypeSelected = (String) parent.getItemAtPosition(position);
+                mealTypeSelected = (String) parent.getItemAtPosition(position);
 
 
 
@@ -82,26 +82,31 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.addFoodButtonId:
-
+            //Create new food object.
+                // Add new food object into the FoodRecord array.
+                //Create a toast to say the item is added.
 
                 break;
         }
     }
 
+    //To get back food name input from user.
     public String getFoodName(){
         TextView name = viewToInflate.findViewById(R.id.foodInputTextViewId);
         String foodName = (String) name.getText();
         return foodName;
     }
 
+    //To get back food date input from user.
     public String getFoodDate(){
         TextView date = viewToInflate.findViewById(R.id.dateInputTextViewId);
         String foodDate = (String) date.getText();
         return foodDate;
     }
 
+    //To get back meal type input from user.
     public MealType getMealType()
-    {   String spinnerResult = ""; //Need to figure out how to get back the spinner result. It is currently a string.
+    {   String spinnerResult = mealTypeSelected;
         MealType mealTypeToReturn = null;
 
         for (MealType meal : MealType.values()) {
