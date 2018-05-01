@@ -27,11 +27,16 @@ public class FoodListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-        FoodRecord foodRecord = new FoodRecord();
-        Food chips = new Food("chips", "18/03/2018", MealType.BREAKFAST);
-        Food lasagne = new Food("lasagne", "12/04/2017", MealType.DINNER);
-        foodRecord.addFood(lasagne);
-        foodRecord.addFood(chips);
+//        FoodRecord foodRecord = new FoodRecord();
+//        Food chips = new Food("chips", "18/03/2018", MealType.BREAKFAST);
+//        Food lasagne = new Food("lasagne", "12/04/2017", MealType.DINNER);
+//        foodRecord.addFood(lasagne);
+//        foodRecord.addFood(chips);
+
+        
+        //To get the persisted data from the shared preferences.
+        IFoodRecordable mainActivity = (IFoodRecordable) getActivity();
+        FoodRecord foodRecord = mainActivity.getFoodRecord();
         ArrayList<Food> loggedFood = foodRecord.getLoggedFood();
 
         //This starts the listView creation using the loggedFood object.
