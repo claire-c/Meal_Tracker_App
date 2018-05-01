@@ -33,10 +33,10 @@ public class HomeFragment extends Fragment {
         dinnersLogged = viewToInflate.findViewById(R.id.totalDinnersId);
         snacksLogged = viewToInflate.findViewById(R.id.totalSnacksId);
 
-        breakfastsLogged.setText(foodRecord.getBreakfastTotal().toString() + " breakfast foods logged");
-        lunchesLogged.setText(foodRecord.getLunchTotal().toString() + " lunch foods logged");
-        dinnersLogged.setText(foodRecord.getDinnerTotal().toString() + " dinner foods logged");
-        snacksLogged.setText(foodRecord.getSnackTotal().toString() + " snack foods logged");
+        breakfastsLogged.setText(foodRecord.getBreakfastTotal().toString() + " breakfasts logged");
+        lunchesLogged.setText(foodRecord.getLunchTotal().toString() + " lunches logged");
+        dinnersLogged.setText(foodRecord.getDinnerTotal().toString() + " dinners logged");
+        snacksLogged.setText(foodRecord.getSnackTotal().toString() + " snacks logged");
 
         return viewToInflate;
     }

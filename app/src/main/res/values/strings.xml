@@ -10,9 +10,15 @@
     <string name="total_lunches"> Total lunches logged</string>
     <string name="total_dinners"> Total dinners logged</string>
     <string name="total_snacks"> Total snacks logged</string>
+    <string name="addfood_title">Add meal</string>
     <string name="addfood_input_food">What did you eat?</string>
     <string name="addfood_input_date">Date to log</string>
     <string name="addfood_toast_confirmation">Your food is added!</string>
+    <string name="fooddetail_remove_toast_confirmation">Meal removed from log!</string>
+    <string name="home_breakfasts"> breakfasts logged</string>
+    <string name="home_lunches"> lunchess logged</string>
+    <string name="home_dinners"> dinners logged</string>
+    <string name="home_snacks"> snacks logged</string>
     <string-array name="meal_types">
         <item>Breakfast</item>
         <item>Lunch</item>

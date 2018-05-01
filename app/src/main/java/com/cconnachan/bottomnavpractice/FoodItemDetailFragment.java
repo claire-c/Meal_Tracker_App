@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -78,6 +79,27 @@ public class FoodItemDetailFragment extends Fragment {
 
         return viewToInflate;
     }
+
+
+    //For button onClick
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.deleteFoodLogButton:
+
+                IFoodRecordable mainActivity = (IFoodRecordable) getActivity();
+
+                FoodRecord foodRecord = mainActivity.getFoodRecord();
+                foodRecord.removeFood(food);
+
+                mainActivity.persistFoodRecord();
+
+                Toast.makeText(getContext(), R.string.fooddetail_remove_toast_confirmation,
+                        Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
