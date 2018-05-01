@@ -23,7 +23,7 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
     ArrayAdapter<CharSequence> spinnerAdapter;
     View viewToInflate;
     String mealTypeSelected;
-    FoodRecord foodRecord = new FoodRecord();
+//    FoodRecord foodRecord = new FoodRecord();
 
     @Nullable
     @Override
@@ -83,7 +83,13 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
         switch (view.getId()) {
             case R.id.addFoodButtonId:
                 Food foodToAdd = new Food(getFoodName(), getFoodDate(), getMealType());
+
+                IFoodRecordable mainActivity = (IFoodRecordable) getActivity();
+
+                FoodRecord foodRecord = mainActivity.getFoodRecord();
                 foodRecord.addFood(foodToAdd);
+
+//                mainActivity.persistFoodRecord();
 
                 Toast.makeText(getContext(), R.string.addfood_toast_confirmation,
                         Toast.LENGTH_SHORT).show();

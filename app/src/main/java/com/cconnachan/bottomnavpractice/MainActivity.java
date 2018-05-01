@@ -1,5 +1,7 @@
 package com.cconnachan.bottomnavpractice;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,8 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, FoodItemDetailFragment.OnFragmentInteractionListener {
+import com.google.gson.Gson;
 
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, FoodItemDetailFragment.OnFragmentInteractionListener, IFoodRecordable {
+
+    private FoodRecord foodRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +25,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+        String foodRecordAsJSON = sharedPref.getString("FoodRecord", "{}");
+
+        //New Gson thing
+        Gson gson = new Gson();
+        //This is deserializing the JSON format into a FoodRecord object.
+        foodRecord = gson.fromJson(foodRecordAsJSON, FoodRecord.class);
         loadFragment(new HomeFragment());
     }
 
@@ -63,5 +75,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public void onFragmentInteraction(Uri uri) {
         //empty
+    }
+
+    @Override
+    public FoodRecord getFoodRecord(){
+        return foodRecord;
+    }
+
+    @Override
+    public void persistFoodRecord(){
+
     }
 }
