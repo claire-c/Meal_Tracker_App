@@ -9,13 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class AddFoodFragment extends Fragment {
+public class AddFoodFragment extends Fragment implements View.OnClickListener{
 
     Spinner spinner;
     ArrayAdapter<CharSequence> spinnerAdapter;
@@ -26,6 +27,11 @@ public class AddFoodFragment extends Fragment {
 
 
         View viewToInflate = inflater.inflate(R.layout.fragment_add_food, null);
+
+
+
+        //SPINNER
+
         //This is initializing my spinner.
         spinner = viewToInflate.findViewById(R.id.spinner);
         //This is getting the stuff I need to put in the spinner and give it a look.
@@ -41,6 +47,11 @@ public class AddFoodFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //This is a toast that will pop up when the dropdown item is selected.
                 Toast.makeText(getContext(), parent.getItemAtPosition(position) + " is selected", Toast.LENGTH_SHORT).show();
+
+
+                //Need to add more to this - need to hook up the spinner to the object.
+
+
             }
 
             @Override
@@ -49,6 +60,35 @@ public class AddFoodFragment extends Fragment {
             }
         });
 
+        //END SPINNER
+
+        //BUTTON
+
+        Button button = viewToInflate.findViewById(R.id.addFoodButtonId);
+        button.setOnClickListener(this);
+
+        //END BUTTON
+
+
         return viewToInflate;
     }
+
+
+    //For button onClick
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.addFoodButtonId:
+
+
+                break;
+        }
+    }
+
+
+
 }
+
+
+
+

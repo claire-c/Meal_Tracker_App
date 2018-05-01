@@ -23,7 +23,6 @@ public class FoodItemDetailFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     static final String ARG_ALLTHEFOOD = "food";
 
-    // TODO: Rename and change types of parameters
     private Food food;
     TextView foodNameTextView;
     TextView dateLoggedTextView;
@@ -66,6 +65,8 @@ public class FoodItemDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View viewToInflate = inflater.inflate(R.layout.fragment_food_item_detail, container, false);
+
+        //Assign the textViews and their corresponding text.
         foodNameTextView = viewToInflate.findViewById(R.id.mealNameFoodItemDetailFragmentTextViewId);
         foodNameTextView.setText(food.getName());
 
