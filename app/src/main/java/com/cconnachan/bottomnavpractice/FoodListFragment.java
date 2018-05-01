@@ -27,13 +27,6 @@ public class FoodListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-//        FoodRecord foodRecord = new FoodRecord();
-//        Food chips = new Food("chips", "18/03/2018", MealType.BREAKFAST);
-//        Food lasagne = new Food("lasagne", "12/04/2017", MealType.DINNER);
-//        foodRecord.addFood(lasagne);
-//        foodRecord.addFood(chips);
-
-        
         //To get the persisted data from the shared preferences.
         IFoodRecordable mainActivity = (IFoodRecordable) getActivity();
         FoodRecord foodRecord = mainActivity.getFoodRecord();
@@ -44,6 +37,7 @@ public class FoodListFragment extends Fragment {
 
         //This prepares the view to inflate., using the ID of the fragment.
         View viewToInflate = inflater.inflate(R.layout.fragment_food_list, null);
+
         //This inflates the listView within the fragment.
         ListView listView = viewToInflate.findViewById(R.id.foodLogListId);
 
