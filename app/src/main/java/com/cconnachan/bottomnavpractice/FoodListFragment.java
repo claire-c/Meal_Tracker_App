@@ -44,13 +44,14 @@ public class FoodListFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View listItem, int position, long id) {
-                Log.d("hello there!", "we are being logged");
+
+                //This gets the food object from the listView.
                 Food food = (Food) listItem.getTag();
-                Log.d("Food name: ", food.getName());
 
                 // Create fragment and give it an argument specifying the article it should show
                 FoodItemDetailFragment newFragment = new FoodItemDetailFragment();
                 Bundle args = new Bundle();
+                //This passes through the food item to the fragment.
                 args.putSerializable(FoodItemDetailFragment.ARG_ALLTHEFOOD, food);
                 newFragment.setArguments(args);
 
@@ -70,18 +71,6 @@ public class FoodListFragment extends Fragment {
 
     }
 
-//    public void onListItemClick(View listItem) {
-//        Food food = (Food) listItem.getTag();
-//        Log.d("Food name: ", food.getName());
-//    }
 
-    public void getFoodItem(View listItem) {
-        Food food = (Food) listItem.getTag();
-        Log.d("get food item: ", food.getName());
-
-        Intent intent = new Intent(getContext(), FoodItemDetailActivity.class);
-        intent.putExtra("food", food);
-        startActivity(intent);
-    }
 
 }
