@@ -34,13 +34,17 @@ public class FoodListFragment extends Fragment {
         foodRecord.addFood(chips);
         ArrayList<Food> loggedFood = foodRecord.getLoggedFood();
 
+        //This starts the listView creation using the loggedFood object.
         LoggedFoodAdapter foodAdapter = new LoggedFoodAdapter(getContext(), loggedFood);
 
+        //This prepares the view to inflate., using the ID of the fragment.
         View viewToInflate = inflater.inflate(R.layout.fragment_food_list, null);
+        //This inflates the listView within the fragment.
         ListView listView = viewToInflate.findViewById(R.id.foodLogListId);
 
         listView.setAdapter(foodAdapter);
 
+        //This is for when someone clicks on the listView item.
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View listItem, int position, long id) {
@@ -67,6 +71,7 @@ public class FoodListFragment extends Fragment {
             }
         });
 
+        //This returns the view that will be inflated, complete with information.
         return viewToInflate;
 
     }

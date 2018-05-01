@@ -21,12 +21,10 @@ import android.widget.TextView;
 public class FoodItemDetailFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    static final String ARG_ALLTHEFOOD = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    static final String ARG_ALLTHEFOOD = "food";
 
     // TODO: Rename and change types of parameters
-    private Food mParam1;
-    private String mParam2;
+    private Food food;
     TextView foodNameTextView;
     TextView dateLoggedTextView;
     TextView mealTypeTextView;
@@ -46,11 +44,10 @@ public class FoodItemDetailFragment extends Fragment {
      * @return A new instance of fragment FoodItemDetailFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FoodItemDetailFragment newInstance(String param1, String param2) {
+    public static FoodItemDetailFragment newInstance(String food) {
         FoodItemDetailFragment fragment = new FoodItemDetailFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_ALLTHEFOOD, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_ALLTHEFOOD, food);
         fragment.setArguments(args);
         return fragment;
     }
@@ -59,8 +56,7 @@ public class FoodItemDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = (Food) getArguments().getSerializable(ARG_ALLTHEFOOD);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            food = (Food) getArguments().getSerializable(ARG_ALLTHEFOOD);
 
         }
     }
@@ -71,13 +67,13 @@ public class FoodItemDetailFragment extends Fragment {
         // Inflate the layout for this fragment
         View viewToInflate = inflater.inflate(R.layout.fragment_food_item_detail, container, false);
         foodNameTextView = viewToInflate.findViewById(R.id.mealNameFoodItemDetailFragmentTextViewId);
-        foodNameTextView.setText(mParam1.getName());
+        foodNameTextView.setText(food.getName());
 
         dateLoggedTextView = viewToInflate.findViewById(R.id.dateLoggedFoodItemDetailTextViewId);
-        dateLoggedTextView.setText(mParam1.getDate().toString());
+        dateLoggedTextView.setText(food.getDate().toString());
 
         mealTypeTextView = viewToInflate.findViewById(R.id.mealTypeFoodItemDetailTextViewId);
-        mealTypeTextView.setText(mParam1.getMealType().toString());
+        mealTypeTextView.setText(food.getMealType().toString());
 
         return viewToInflate;
     }
