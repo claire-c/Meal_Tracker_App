@@ -49,11 +49,10 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //This is a toast that will pop up when the dropdown item is selected.
-                Toast.makeText(getContext(), parent.getItemAtPosition(position) + " is selected", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), parent.getItemAtPosition(position) + " is selected", Toast.LENGTH_SHORT).show();
 
+                //Saving the meal type that has been selected as a string so I can use it later.
                 mealTypeSelected = (String) parent.getItemAtPosition(position);
-
-
 
             }
 
@@ -88,8 +87,6 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
 
                 Toast.makeText(getContext(), R.string.addfood_toast_confirmation,
                         Toast.LENGTH_SHORT).show();
-
-
                 break;
         }
     }
