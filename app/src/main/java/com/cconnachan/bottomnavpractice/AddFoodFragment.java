@@ -23,6 +23,7 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
     ArrayAdapter<CharSequence> spinnerAdapter;
     View viewToInflate;
     String mealTypeSelected;
+    FoodRecord foodRecord = new FoodRecord();
 
     @Nullable
     @Override
@@ -82,9 +83,12 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.addFoodButtonId:
-            //Create new food object.
-                // Add new food object into the FoodRecord array.
-                //Create a toast to say the item is added.
+                Food foodToAdd = new Food(getFoodName(), getFoodDate(), getMealType());
+                foodRecord.addFood(foodToAdd);
+
+                Toast.makeText(getContext(), R.string.addfood_toast_confirmation,
+                        Toast.LENGTH_SHORT).show();
+
 
                 break;
         }
@@ -93,29 +97,20 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
     //To get back food name input from user.
     public String getFoodName(){
         TextView name = viewToInflate.findViewById(R.id.foodInputTextViewId);
-        String foodName = (String) name.getText();
+        String foodName = name.getText().toString();
         return foodName;
     }
 
     //To get back food date input from user.
     public String getFoodDate(){
         TextView date = viewToInflate.findViewById(R.id.dateInputTextViewId);
-        String foodDate = (String) date.getText();
+        String foodDate = (String) date.getText().toString();
         return foodDate;
     }
 
     //To get back meal type input from user.
-    public MealType getMealType()
-    {   String spinnerResult = mealTypeSelected;
-        MealType mealTypeToReturn = null;
-
-        for (MealType meal : MealType.values()) {
-            if (spinnerResult == meal.getEnumMealName()){
-                mealTypeToReturn = meal;
-            }
-        }
-
-        return mealTypeToReturn;
+    public MealType getMealType() {
+        return MealType.valueOf(mealTypeSelected.toUpperCase());
     }
 
 

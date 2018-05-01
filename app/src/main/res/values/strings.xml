@@ -12,6 +12,7 @@
     <string name="total_snacks"> Total snacks logged</string>
     <string name="addfood_input_food">What did you eat?</string>
     <string name="addfood_input_date">Date to log</string>
+    <string name="addfood_toast_confirmation">Your food is added!</string>
     <string-array name="meal_types">
         <item>Breakfast</item>
         <item>Lunch</item>

@@ -18,4 +18,14 @@ public enum MealType {
     public String getEnumMealName(){
         return this.mealName;
     }
+
+    public MealType getMealTypeFromString(String stringMealType){
+
+        for (MealType meal : MealType.values()) {
+            if (stringMealType == meal.getEnumMealName()){
+                return meal;
+            }
+        }
+        throw new IllegalArgumentException("No meal here.");
+    }
 }
