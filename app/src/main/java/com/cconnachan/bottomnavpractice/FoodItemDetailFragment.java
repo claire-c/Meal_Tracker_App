@@ -46,7 +46,6 @@ public class FoodItemDetailFragment extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
 
-//    FoodItemDetailFragment fif = FoodItemDetailFragment.newInstance(jsonString);
 
     public static FoodItemDetailFragment newInstance(String food) {
         FoodItemDetailFragment fragment = new FoodItemDetailFragment();

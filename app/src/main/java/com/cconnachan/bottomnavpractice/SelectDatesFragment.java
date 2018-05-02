@@ -44,10 +44,14 @@ public class SelectDatesFragment extends Fragment implements View.OnClickListene
 
                 FoodRecord foodRecord = Persister.load(getContext());
                 ArrayList<Food> foodBetweenDates = foodRecord.getFoodBetweenDates(getDateFrom(), getDateTo());
-                
+                FoodRecord disposableFoodRecord = new FoodRecord(foodBetweenDates);
+
 
                 // Create new fragment and transaction
                 Fragment newFragment = new DateSortedFoodListFragment();
+                Bundle args = new Bundle();
+                //This passes through the food item to the fragment.
+                args.putSerializable(DateSortedFoodListFragment.ARG_ALLSORTEDFOOD, disposableFoodRecord);
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 

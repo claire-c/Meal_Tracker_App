@@ -3,19 +3,25 @@ package com.cconnachan.bottomnavpractice;
 import android.graphics.Movie;
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 
-public class FoodRecord {
+public class FoodRecord implements Serializable{
 
     private ArrayList<Food> loggedFood;
     private HashMap<MealType, Integer> loggedMeals;
 
     public FoodRecord() {
         this.loggedFood = new ArrayList<Food>();
+        this.loggedMeals = new HashMap<>();
+    }
+
+    public FoodRecord(ArrayList<Food> sortedFood) {
+        this.loggedFood = sortedFood;
         this.loggedMeals = new HashMap<>();
     }
 

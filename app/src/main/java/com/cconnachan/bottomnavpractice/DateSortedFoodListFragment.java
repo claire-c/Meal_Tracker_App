@@ -15,6 +15,28 @@ import java.util.ArrayList;
 
 public class DateSortedFoodListFragment extends Fragment{
 
+    static final String ARG_ALLSORTEDFOOD = "sortedFood";
+
+    FoodRecord loggedFood;
+
+    public static DateSortedFoodListFragment newInstance(String sortedFood) {
+        DateSortedFoodListFragment fragment = new DateSortedFoodListFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_ALLSORTEDFOOD, sortedFood);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            loggedFood = (FoodRecord) getArguments().getSerializable(ARG_ALLSORTEDFOOD);
+
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -24,10 +46,10 @@ public class DateSortedFoodListFragment extends Fragment{
         FoodRecord foodRecord = Persister.load(getContext());
 
         //NEED TO SORT THIS - HOW TO GET STRING INPUT FROM OTHER FRAGMENT? OTHER OPTIONS ARE USING THE BUNDLE AND EXTRACTING IT FROM THERE?
-        ArrayList<Food> loggedFood = foodRecord.getFoodBetweenDates("01/01/2017", "01/06/2018");
+//        ArrayList<Food> loggedFood = foodRecord.getFoodBetweenDates("01/01/2017", "01/06/2018");
 
         //This starts the listView creation using the loggedFood object.
-        LoggedFoodAdapter foodAdapter = new LoggedFoodAdapter(getContext(), loggedFood);
+        LoggedFoodAdapter foodAdapter = new LoggedFoodAdapter(getContext(), loggedFood.getLoggedFood());
 
         //This prepares the view to inflate., using the ID of the fragment.
         View viewToInflate = inflater.inflate(R.layout.fragment_date_sorted_food_list, null);
