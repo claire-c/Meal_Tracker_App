@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Bottom Nav Practice</string>
-    <string name="title_home">Hey, food lover</string>
+    <string name="title_home">Hey, food lover :D</string>
     <string name="title_main">Home</string>
     <string name="title_see_stats">Check out your meal stats:</string>
     <string name="title_add_food">Add food</string>
@@ -16,7 +16,7 @@
     <string name="addfood_toast_confirmation">Your food is added!</string>
     <string name="fooddetail_remove_toast_confirmation">Meal removed from log!</string>
     <string name="home_breakfasts"> breakfasts logged</string>
-    <string name="home_lunches"> lunchess logged</string>
+    <string name="home_lunches"> lunches logged</string>
     <string name="home_dinners"> dinners logged</string>
     <string name="home_snacks"> snacks logged</string>
     <string-array name="meal_types">

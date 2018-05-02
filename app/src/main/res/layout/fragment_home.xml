@@ -6,88 +6,145 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/foodLoverTextViewId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:text="@string/title_home"
+        android:textColor="#505160"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="29dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_see_stats"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="161dp" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/totalBreakfastsId"
-        android:layout_width="137dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
         android:text="@string/total_breakfasts"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="324dp" />
+        android:textColor="#505160"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breakfastNumber" />
 
     <TextView
         android:id="@+id/totalLunchesId"
-        android:layout_width="106dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="8dp"
         android:text="@string/total_lunches"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="244dp"
-        tools:layout_editor_absoluteY="311dp" />
+        android:textColor="#505160"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lunchNumber" />
 
     <TextView
         android:id="@+id/totalDinnersId"
-        android:layout_width="99dp"
-        android:layout_height="58dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
         android:text="@string/total_dinners"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="493dp" />
+        android:textColor="#505160"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dinnerNumber" />
 
     <TextView
         android:id="@+id/totalSnacksId"
-        android:layout_width="94dp"
-        android:layout_height="67dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="8dp"
         android:text="@string/total_snacks"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="256dp"
-        tools:layout_editor_absoluteY="484dp" />
+        android:textColor="#505160"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snackNumber" />
 
     <TextView
         android:id="@+id/breakfastNumber"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="257dp" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="#505160"
+        android:text="3"
+        android:textSize="90dp"
+        app:layout_constraintEnd_toStartOf="@+id/lunchNumber"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/lunchNumber"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="244dp"
-        tools:layout_editor_absoluteY="257dp" />
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="#505160"
+        android:text="6"
+        android:textSize="95dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/dinnerNumber"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="424dp" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="#505160"
+        android:text="1"
+        android:textSize="95dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalBreakfastsId" />
 
     <TextView
         android:id="@+id/snackNumber"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="244dp"
-        tools:layout_editor_absoluteY="424dp" />
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="#505160"
+        android:text="2"
+        android:textSize="95dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalLunchesId" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodLoverTextViewId"
+        app:srcCompat="@drawable/food" />
 </android.support.constraint.ConstraintLayout>

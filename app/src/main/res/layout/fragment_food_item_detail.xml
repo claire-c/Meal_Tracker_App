@@ -66,8 +66,12 @@
         android:layout_marginStart="8dp"
         android:padding="20dp"
         android:text="Delete this meal"
+        android:textSize="20dp"
+        android:background="@color/button_bg_colour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    
 
 </android.support.constraint.ConstraintLayout>

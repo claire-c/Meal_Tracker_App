@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -77,14 +78,10 @@ public class FoodItemDetailFragment extends Fragment {
         mealTypeTextView = viewToInflate.findViewById(R.id.mealTypeFoodItemDetailTextViewId);
         mealTypeTextView.setText(food.getMealType().toString());
 
-        return viewToInflate;
-    }
-
-
-    //For button onClick
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.deleteFoodLogButton:
+        //Set onClickListener for the button click.
+        Button button = viewToInflate.findViewById(R.id.deleteFoodLogButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
 
                 IFoodRecordable mainActivity = (IFoodRecordable) getActivity();
 
@@ -92,12 +89,30 @@ public class FoodItemDetailFragment extends Fragment {
                 foodRecord.removeFood(food);
 
                 mainActivity.persistFoodRecord();
+            }
+        });
 
-                Toast.makeText(getContext(), R.string.fooddetail_remove_toast_confirmation,
-                        Toast.LENGTH_SHORT).show();
-                break;
-        }
+        return viewToInflate;
     }
+
+
+//    //For button onClick
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+//            case R.id.deleteFoodLogButton:
+//
+//                IFoodRecordable mainActivity = (IFoodRecordable) getActivity();
+//
+//                FoodRecord foodRecord = mainActivity.getFoodRecord();
+//                foodRecord.removeFood(food);
+//
+//                mainActivity.persistFoodRecord();
+//
+//                Toast.makeText(getContext(), R.string.fooddetail_remove_toast_confirmation,
+//                        Toast.LENGTH_SHORT).show();
+//                break;
+//        }
+//    }
 
 
 //    You can also declare the click event handler programmatically rather than in an XML layout. This might be necessary if you instantiate the Button at runtime or you need to declare the click behavior in a Fragment subclass.
