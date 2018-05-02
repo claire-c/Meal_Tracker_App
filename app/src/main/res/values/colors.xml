@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="bgBottomNavigation">#68829E</color>
     <color name="BottomNavigationIcon">#DDDEDE</color>
+    <color name="main_activity_bg_colour">#7BA4A8</color>
 </resources>

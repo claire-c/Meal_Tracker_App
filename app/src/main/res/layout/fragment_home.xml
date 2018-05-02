@@ -1,74 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
         android:text="@string/title_home"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="81dp"
+        tools:layout_editor_absoluteY="29dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="211dp"
         android:text="@string/title_see_stats"
-        android:textSize="30sp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp"
-        app:srcCompat="@drawable/food" />
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="161dp" />
 
     <TextView
         android:id="@+id/totalBreakfastsId"
-        android:layout_width="293dp"
-        android:layout_height="44dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginBottom="204dp"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
         android:text="@string/total_breakfasts"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="324dp" />
 
     <TextView
         android:id="@+id/totalLunchesId"
-        android:layout_width="293dp"
-        android:layout_height="44dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginBottom="150dp"
+        android:layout_width="106dp"
+        android:layout_height="wrap_content"
         android:text="@string/total_lunches"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="244dp"
+        tools:layout_editor_absoluteY="311dp" />
 
     <TextView
         android:id="@+id/totalDinnersId"
-        android:layout_width="293dp"
-        android:layout_height="44dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginBottom="96dp"
+        android:layout_width="99dp"
+        android:layout_height="58dp"
         android:text="@string/total_dinners"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="493dp" />
 
     <TextView
         android:id="@+id/totalSnacksId"
-        android:layout_width="293dp"
-        android:layout_height="44dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginBottom="41dp"
+        android:layout_width="94dp"
+        android:layout_height="67dp"
         android:text="@string/total_snacks"
-        android:textSize="24sp" />
-</RelativeLayout>
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="256dp"
+        tools:layout_editor_absoluteY="484dp" />
+
+    <TextView
+        android:id="@+id/breakfastNumber"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="257dp" />
+
+    <TextView
+        android:id="@+id/lunchNumber"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="244dp"
+        tools:layout_editor_absoluteY="257dp" />
+
+    <TextView
+        android:id="@+id/dinnerNumber"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="424dp" />
+
+    <TextView
+        android:id="@+id/snackNumber"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="244dp"
+        tools:layout_editor_absoluteY="424dp" />
+</android.support.constraint.ConstraintLayout>

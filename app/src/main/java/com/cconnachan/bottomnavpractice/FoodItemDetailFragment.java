@@ -100,6 +100,17 @@ public class FoodItemDetailFragment extends Fragment {
     }
 
 
+//    You can also declare the click event handler programmatically rather than in an XML layout. This might be necessary if you instantiate the Button at runtime or you need to declare the click behavior in a Fragment subclass.
+//
+//    To declare the event handler programmatically, create an View.OnClickListener object and assign it to the button by calling setOnClickListener(View.OnClickListener). For example:
+//
+//    Button button = (Button) findViewById(R.id.button_send);
+//button.setOnClickListener(new View.OnClickListener() {
+//        public void onClick(View v) {
+//            // Do something in response to button click
+//        }
+//    });
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
