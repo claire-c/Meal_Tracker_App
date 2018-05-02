@@ -19,7 +19,7 @@ public class FoodDateComparator implements Comparator<Food> {
     }
 
 
-    public Date getDateFromString(String dateToConvert) {
+    public static Date getDateFromString(String dateToConvert) {
        Date dateToReturn = null;
         try {
             dateToReturn = new SimpleDateFormat("dd/MM/yyyy", Locale.UK).parse(dateToConvert);

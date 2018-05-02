@@ -3,6 +3,7 @@ package com.cconnachan.bottomnavpractice;
 import org.junit.Before;
 import org.junit.Test;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -100,6 +101,12 @@ public class FoodRecordTest {
     @Test
     public void canCountTotalSnackItemsLogged(){
         assertEquals((Integer) 1, fullFoodRecord.getSnackTotal());
+    }
+
+    @Test
+    public void canReturnFoodBetweenDates(){
+        ArrayList<Food> food = fullFoodRecord.getFoodBetweenDates("01/01/2017", "10/03/2018");
+        assertEquals(3, food.size());
     }
 
 }

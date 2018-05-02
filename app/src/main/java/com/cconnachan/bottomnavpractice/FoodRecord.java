@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 
 public class FoodRecord {
@@ -13,7 +14,7 @@ public class FoodRecord {
     private ArrayList<Food> loggedFood;
     private HashMap<MealType, Integer> loggedMeals;
 
-    public FoodRecord(){
+    public FoodRecord() {
         this.loggedFood = new ArrayList<Food>();
         this.loggedMeals = new HashMap<>();
     }
@@ -22,19 +23,19 @@ public class FoodRecord {
         return loggedFood;
     }
 
-    public void addFood(Food foodToAdd){
+    public void addFood(Food foodToAdd) {
         loggedFood.add(foodToAdd);
     }
 
-    public int totalLogged(){
+    public int totalLogged() {
         return loggedFood.size();
     }
 
     //This is reliant on passing in the same object that has been logged. Not sure if I will need to refactor this?
-    public void removeFood(Food foodToRemove){
+    public void removeFood(Food foodToRemove) {
         ArrayList<Food> newLoggedFood = new ArrayList<>();
-        for(Food food : loggedFood ){
-            if(!food.isSameAs(foodToRemove)){
+        for (Food food : loggedFood) {
+            if (!food.isSameAs(foodToRemove)) {
                 newLoggedFood.add(food);
             }
         }
@@ -50,16 +51,16 @@ public class FoodRecord {
         Integer supper = 0;
         Integer snack = 0;
 
-        for (Food food : foodToCount){
-            if (food.getMealType() == MealType.BREAKFAST){
+        for (Food food : foodToCount) {
+            if (food.getMealType() == MealType.BREAKFAST) {
                 breakfast += 1;
             } else if (food.getMealType() == MealType.LUNCH) {
                 lunch += 1;
-            } else if (food.getMealType() == MealType.DINNER){
+            } else if (food.getMealType() == MealType.DINNER) {
                 dinner += 1;
             } else if (food.getMealType() == MealType.SUPPER) {
                 supper += 1;
-            } else if (food.getMealType() == MealType.SNACK){
+            } else if (food.getMealType() == MealType.SNACK) {
                 snack += 1;
             }
         }
@@ -75,53 +76,49 @@ public class FoodRecord {
     }
 
 
-    public Integer getBreakfastTotal(){
+    public Integer getBreakfastTotal() {
         getLoggedMeals(loggedFood);
         return loggedMeals.get(MealType.BREAKFAST);
     }
 
-    public Integer getLunchTotal(){
+    public Integer getLunchTotal() {
         getLoggedMeals(loggedFood);
         return loggedMeals.get(MealType.LUNCH);
     }
 
-    public Integer getDinnerTotal(){
+    public Integer getDinnerTotal() {
         getLoggedMeals(loggedFood);
         return loggedMeals.get(MealType.DINNER);
     }
 
-    public Integer getSupperTotal(){
+    public Integer getSupperTotal() {
         getLoggedMeals(loggedFood);
         return loggedMeals.get(MealType.SUPPER);
     }
 
-    public Integer getSnackTotal(){
+    public Integer getSnackTotal() {
         getLoggedMeals(loggedFood);
         return loggedMeals.get(MealType.SNACK);
     }
 
-        //    public class loggedDateComparator implements Comparator<Food> {
-        //        public int compare(Food food, Food secondFood) {
-        //            if (food.getDate().before(secondFood.getDate())) {
-        //                return -1;
-        //            }
-        //            else if (food.getDate().after( secondFood.getDate() ) ){
-        //                return 1;
-        //            } else {
-        //                return 0;
-        //            }
-        //        }
-        //    }
 
-public ArrayList<Food> dateSortedLoggedFood(){
+    public ArrayList<Food> dateSortedLoggedFood() {
         Collections.sort(loggedFood, new FoodDateComparator());
         return loggedFood;
+    }
+
+    public ArrayList<Food> getFoodBetweenDates(String stringDate1, String stringDate2) {
+        Date date1 = FoodDateComparator.getDateFromString(stringDate1);
+        Date date2 = FoodDateComparator.getDateFromString(stringDate2);
+
+        ArrayList<Food> foodBetweenDates = new ArrayList<Food>();
+        for (Food food : loggedFood) {
+            if (food.getDate().after(date1) && food.getDate().before(date2)) {
+                foodBetweenDates.add(food);
+            }
+        }
+        return foodBetweenDates;
+    }
 }
 
-//public ArrayList<Food> foodBetweenDates(String date1, String date2){
-//
-//}
 
-
-
-}
