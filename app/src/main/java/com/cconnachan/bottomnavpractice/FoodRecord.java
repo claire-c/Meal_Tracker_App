@@ -118,6 +118,10 @@ public ArrayList<Food> dateSortedLoggedFood(){
         return loggedFood;
 }
 
+//public ArrayList<Food> foodBetweenDates(String date1, String date2){
+//
+//}
+
 
 
 }
