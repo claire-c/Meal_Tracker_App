@@ -34,7 +34,7 @@ public class FoodRecord {
     public void removeFood(Food foodToRemove){
         ArrayList<Food> newLoggedFood = new ArrayList<>();
         for(Food food : loggedFood ){
-            if(!food.equals(foodToRemove)){
+            if(!food.isSameAs(foodToRemove)){
                 newLoggedFood.add(food);
             }
         }

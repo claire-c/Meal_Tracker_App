@@ -86,13 +86,10 @@ public class FoodItemDetailFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-                //On button click, food is deleted.
-                IFoodRecordable mainActivity = (IFoodRecordable) getActivity();
-
-                FoodRecord foodRecord = mainActivity.getFoodRecord();
+                FoodRecord foodRecord = Persister.load(getContext());
                 foodRecord.removeFood(food);
+                Persister.save(getContext(), foodRecord);
 
-                mainActivity.persistFoodRecord();
             }
         });
 

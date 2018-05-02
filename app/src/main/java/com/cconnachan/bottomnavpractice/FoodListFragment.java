@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.cconnachan.bottomnavpractice.FoodRecord;
 
 
 import java.util.ArrayList;
@@ -28,8 +27,7 @@ public class FoodListFragment extends Fragment {
 
 
         //To get the persisted data from the shared preferences.
-        IFoodRecordable mainActivity = (IFoodRecordable) getActivity();
-        FoodRecord foodRecord = mainActivity.getFoodRecord();
+        FoodRecord foodRecord = Persister.load(getContext());
         ArrayList<Food> loggedFood = foodRecord.dateSortedLoggedFood();
 
         //This starts the listView creation using the loggedFood object.

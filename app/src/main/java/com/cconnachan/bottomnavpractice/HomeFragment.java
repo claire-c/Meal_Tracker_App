@@ -29,8 +29,7 @@ public class HomeFragment extends Fragment {
         View viewToInflate = inflater.inflate(R.layout.fragment_home, null);
 
         //To get the persisted data from the shared preferences.
-        IFoodRecordable mainActivity = (IFoodRecordable) getActivity();
-        FoodRecord foodRecord = mainActivity.getFoodRecord();
+        FoodRecord foodRecord = Persister.load(getContext());
 
         breakfastsLogged = viewToInflate.findViewById(R.id.totalBreakfastsId);
         lunchesLogged = viewToInflate.findViewById(R.id.totalLunchesId);

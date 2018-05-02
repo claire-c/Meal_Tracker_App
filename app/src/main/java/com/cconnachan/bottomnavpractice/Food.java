@@ -38,6 +38,12 @@ public class Food implements Serializable {
         return name;
     }
 
+    public boolean isSameAs(Food otherFood){
+        boolean isNameSame = this.getName().equals(otherFood.getName());
+        boolean isDateSame = this.getDate().compareTo(otherFood.getDate()) == 0 ;
+        return (isDateSame && isNameSame);
+
+    }
 //    public Date getPrettyDate(){
 //    }
 
