@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,13 +42,28 @@ public class SelectDatesFragment extends Fragment implements View.OnClickListene
         switch (view.getId()) {
             case R.id.selectDatesButtonId:
 
-                FoodRecord foodRecord = Persister.load(getContext());
-                ArrayList<Food> foodBetweenDates = foodRecord.getFoodBetweenDates(getDateFrom(), getDateTo());
-
+//                FoodRecord foodRecord = Persister.load(getContext());
+//                ArrayList<Food> foodBetweenDates = foodRecord.getFoodBetweenDates(getDateFrom(), getDateTo());
+//
 
                 Toast.makeText(getContext(), R.string.addfood_toast_confirmation,
                         Toast.LENGTH_SHORT).show();
 
+                Log.d("Toast", "Toast successful");
+                // Create new fragment and transaction
+                Fragment newFragment = new DateSortedFoodListFragment();
+                Log.d("new fragment", "new fragment successful");
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                Log.d("trans", "fragment transaction successful");
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(R.id.fragment_container, newFragment);
+
+                transaction.addToBackStack(null);
+
+                // Commit the transaction
+                transaction.commit();
 
                 break;
         }
