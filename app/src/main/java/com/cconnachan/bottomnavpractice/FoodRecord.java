@@ -1,6 +1,11 @@
 package com.cconnachan.bottomnavpractice;
 
+import android.graphics.Movie;
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class FoodRecord {
@@ -95,10 +100,24 @@ public class FoodRecord {
         return loggedMeals.get(MealType.SNACK);
     }
 
-    public ArrayList<Food> dateOrderedFood(){
+        //    public class loggedDateComparator implements Comparator<Food> {
+        //        public int compare(Food food, Food secondFood) {
+        //            if (food.getDate().before(secondFood.getDate())) {
+        //                return -1;
+        //            }
+        //            else if (food.getDate().after( secondFood.getDate() ) ){
+        //                return 1;
+        //            } else {
+        //                return 0;
+        //            }
+        //        }
+        //    }
 
-        
-    }
+public ArrayList<Food> dateSortedLoggedFood(){
+        Collections.sort(loggedFood, new FoodDateComparator());
+        return loggedFood;
+}
+
 
 
 }

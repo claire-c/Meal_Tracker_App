@@ -30,7 +30,7 @@ public class FoodListFragment extends Fragment {
         //To get the persisted data from the shared preferences.
         IFoodRecordable mainActivity = (IFoodRecordable) getActivity();
         FoodRecord foodRecord = mainActivity.getFoodRecord();
-        ArrayList<Food> loggedFood = foodRecord.getLoggedFood();
+        ArrayList<Food> loggedFood = foodRecord.dateSortedLoggedFood();
 
         //This starts the listView creation using the loggedFood object.
         LoggedFoodAdapter foodAdapter = new LoggedFoodAdapter(getContext(), loggedFood);
