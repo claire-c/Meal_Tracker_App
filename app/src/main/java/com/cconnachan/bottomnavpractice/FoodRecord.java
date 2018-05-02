@@ -95,5 +95,10 @@ public class FoodRecord {
         return loggedMeals.get(MealType.SNACK);
     }
 
+    public ArrayList<Food> dateOrderedFood(){
+
+        
+    }
+
 
 }
