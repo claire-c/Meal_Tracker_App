@@ -7,4 +7,5 @@
     <color name="BottomNavigationIcon">#DDDEDE</color>
     <color name="main_activity_bg_colour">#DDDEDE</color>
     <color name="button_bg_colour">#A5C05B</color>
+    <color name="copy_text">#505160</color>
 </resources>

@@ -17,6 +17,7 @@
         android:ems="10"
         android:hint="@string/addfood_input_food"
         android:inputType="textPersonName"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +33,7 @@
         android:ems="10"
         android:hint="@string/addfood_input_date"
         android:inputType="date"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/foodInputTextViewId" />
 
@@ -84,7 +86,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:text="Choose meal type:"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateInputTextViewId" />
 

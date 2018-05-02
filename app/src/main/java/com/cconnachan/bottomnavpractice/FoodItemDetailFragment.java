@@ -90,6 +90,9 @@ public class FoodItemDetailFragment extends Fragment {
                 foodRecord.removeFood(food);
                 Persister.save(getContext(), foodRecord);
 
+                Toast.makeText(getContext(), R.string.fooddetail_remove_toast_confirmation,
+                        Toast.LENGTH_SHORT).show();
+
             }
         });
 
