@@ -25,9 +25,6 @@ import java.util.Date;
 public class SelectDatesFragment extends Fragment implements View.OnClickListener {
 
     View viewToInflate;
-    Bundle savedInstanceState;
-//    String userDateFrom;
-//    String userDateTo;
     EditText firstDateTextView;
     EditText secondDateTextView;
     DatePickerDialog.OnDateSetListener dateListener;
@@ -40,34 +37,32 @@ public class SelectDatesFragment extends Fragment implements View.OnClickListene
         //Inflate fragment.
         viewToInflate = inflater.inflate(R.layout.fragment_select_dates, null);
 
-        //BUTTON
-
+        //Select dates button listener
         Button button = viewToInflate.findViewById(R.id.selectDatesButtonId);
         button.setOnClickListener(this);
 
-        //END BUTTON
 
-        //FIRST DATE SELECTOR
-
+        //First date selection listener
         Button firstDateSelected = viewToInflate.findViewById(R.id.dateFromButtonId);
         firstDateSelected.setOnClickListener(this);
 
-        //END FIRST DATE SELECTOR
-
-        //SECOND DATE SELECTOR
-
+        //Second date selector listener
         Button secondDateSelected = viewToInflate.findViewById(R.id.dateToButtonId);
         secondDateSelected.setOnClickListener(this);
 
-        //END FIRST DATE SELECTOR
+
+        //Get the edit text views
         firstDateTextView = viewToInflate.findViewById(R.id.dateFromEditTextId);
         secondDateTextView = viewToInflate.findViewById(R.id.dateToEditTextId);
 
+        //Set the date listener.
         dateListener = new DatePickerDialog.OnDateSetListener() {
 
+            //Turns integer date from user into a string date and a tag is assigned to the date as string so I can tell the difference between the two dates picked.
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
+                monthOfYear = monthOfYear + 1;
 
                 String dateAsString = FoodDateComparator.turnIntToStringDate(year, monthOfYear, dayOfMonth);
 
@@ -82,21 +77,18 @@ public class SelectDatesFragment extends Fragment implements View.OnClickListene
         return viewToInflate;
     }
 
-    //Date from user is now put into the edit text view.
-    public void dateWasPicked(String datePickedId, String datePicked){
 
-        if (datePickedId == getString(R.string.dateFromPickerReferenceId)){
+    //Date from user is now put into the edit text view.
+    public void dateWasPicked(String datePickedId, String datePicked) {
+
+        if (datePickedId == getString(R.string.dateFromPickerReferenceId)) {
             firstDateTextView.setText(datePicked);
 
-        }else if (datePickedId == getString(R.string.dateToPickerReferenceId)){
+        } else if (datePickedId == getString(R.string.dateToPickerReferenceId)) {
             secondDateTextView.setText(datePicked);
         }
 
     }
-
-
-
-
 
 
     @Override
@@ -133,23 +125,20 @@ public class SelectDatesFragment extends Fragment implements View.OnClickListene
 
             case R.id.dateFromButtonId:
                 newUpDatePicker(getString(R.string.dateFromPickerReferenceId));
-                //setDateOnTextView();
-               // onDateSet(viewToInflate.findViewById(R.id.dateFromButtonId), year, month, dayOfMonth);
                 break;
 
             case R.id.dateToButtonId:
                 newUpDatePicker(getString(R.string.dateToPickerReferenceId));
-              //  onDateSet(viewToInflate.findViewById(R.id.dateToButtonId), year, month, dayOfMonth);
                 break;
         }
     }
 
 
     //To create a new date picker
-    public void newUpDatePicker(String datePickerId){
+    public void newUpDatePicker(String datePickerId) {
 
         Calendar myCalendar = Calendar.getInstance();
-        DatePickerDialog datePicker = new DatePickerDialog( getContext(), dateListener, myCalendar
+        DatePickerDialog datePicker = new DatePickerDialog(getContext(), dateListener, myCalendar
                 .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                 myCalendar.get(Calendar.DAY_OF_MONTH));
 
@@ -160,25 +149,8 @@ public class SelectDatesFragment extends Fragment implements View.OnClickListene
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-//-------- Methods relating to text views ----------
-
-
-
-
     //To get back first date selected by the user.
     public String getDateFrom() {
-//        firstDate = viewToInflate.findViewById(R.id.dateFromEditTextId);
         String dateFrom = firstDateTextView.getText().toString();
         return dateFrom;
 
@@ -187,12 +159,10 @@ public class SelectDatesFragment extends Fragment implements View.OnClickListene
 
     //To get back second date selected by the user.
     public String getDateTo() {
-//        secondDate = viewToInflate.findViewById(R.id.dateToEditTextId);
         String dateTo = secondDateTextView.getText().toString();
         return dateTo;
 
     }
-
 
 
 }
