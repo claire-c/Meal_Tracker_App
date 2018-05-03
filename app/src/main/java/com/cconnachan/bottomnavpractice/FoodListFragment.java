@@ -15,7 +15,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
-
 import java.util.ArrayList;
 
 public class FoodListFragment extends Fragment {
@@ -58,12 +57,12 @@ public class FoodListFragment extends Fragment {
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-// Replace whatever is in the fragment_container view with this fragment,
-// and add the transaction to the back stack so the user can navigate back
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
                 transaction.replace(R.id.fragment_container, newFragment);
                 transaction.addToBackStack(null);
 
-// Commit the transaction
+                // Commit the transaction
                 transaction.commit();
             }
         });
@@ -72,7 +71,6 @@ public class FoodListFragment extends Fragment {
         return viewToInflate;
 
     }
-
 
 
 }

@@ -48,10 +48,11 @@ public class SelectDatesFragment extends Fragment implements View.OnClickListene
 
 
                 // Create new fragment and transaction
-                Fragment newFragment = new DateSortedFoodListFragment();
+                DateSortedFoodListFragment newFragment = new DateSortedFoodListFragment();
                 Bundle args = new Bundle();
                 //This passes through the food item to the fragment.
                 args.putSerializable(DateSortedFoodListFragment.ARG_ALLSORTEDFOOD, disposableFoodRecord);
+                newFragment.setArguments(args);
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 

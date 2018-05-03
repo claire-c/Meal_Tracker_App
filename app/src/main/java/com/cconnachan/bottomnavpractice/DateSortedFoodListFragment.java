@@ -43,12 +43,13 @@ public class DateSortedFoodListFragment extends Fragment{
 
 
         //To get the persisted data from the shared preferences.
-        FoodRecord foodRecord = Persister.load(getContext());
+//        FoodRecord foodRecord = Persister.load(getContext());
 
         //NEED TO SORT THIS - HOW TO GET STRING INPUT FROM OTHER FRAGMENT? OTHER OPTIONS ARE USING THE BUNDLE AND EXTRACTING IT FROM THERE?
 //        ArrayList<Food> loggedFood = foodRecord.getFoodBetweenDates("01/01/2017", "01/06/2018");
 
         //This starts the listView creation using the loggedFood object.
+        loggedFood = (FoodRecord) getArguments().getSerializable(ARG_ALLSORTEDFOOD);
         LoggedFoodAdapter foodAdapter = new LoggedFoodAdapter(getContext(), loggedFood.getLoggedFood());
 
         //This prepares the view to inflate., using the ID of the fragment.
