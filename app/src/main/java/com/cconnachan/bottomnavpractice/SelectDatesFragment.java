@@ -14,16 +14,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
-public class SelectDatesFragment extends DialogFragment implements View.OnClickListener, DatePickerDialog.OnDateSetListener {
+public class SelectDatesFragment extends Fragment implements View.OnClickListener {
 
     View viewToInflate;
     Bundle savedInstanceState;
+//    String userDateFrom;
+//    String userDateTo;
+    EditText firstDateTextView;
+    EditText secondDateTextView;
+    DatePickerDialog.OnDateSetListener dateListener;
+
 
     @Nullable
     @Override
@@ -52,10 +60,43 @@ public class SelectDatesFragment extends DialogFragment implements View.OnClickL
         secondDateSelected.setOnClickListener(this);
 
         //END FIRST DATE SELECTOR
+        firstDateTextView = viewToInflate.findViewById(R.id.dateFromEditTextId);
+        secondDateTextView = viewToInflate.findViewById(R.id.dateToEditTextId);
+
+        dateListener = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+
+                String dateAsString = FoodDateComparator.turnIntToStringDate(year, monthOfYear, dayOfMonth);
+
+                String datePickerId = (String) view.getTag();
+
+                dateWasPicked(datePickerId, dateAsString);
+            }
+
+        };
 
 
         return viewToInflate;
     }
+
+    //Date from user is now put into the edit text view.
+    public void dateWasPicked(String datePickedId, String datePicked){
+
+        if (datePickedId == getString(R.string.dateFromPickerReferenceId)){
+            firstDateTextView.setText(datePicked);
+
+        }else if (datePickedId == getString(R.string.dateToPickerReferenceId)){
+            secondDateTextView.setText(datePicked);
+        }
+
+    }
+
+
+
+
 
 
     @Override
@@ -91,50 +132,67 @@ public class SelectDatesFragment extends DialogFragment implements View.OnClickL
                 break;
 
             case R.id.dateFromButtonId:
-                DialogFragment dateFromFragment = new SelectDatesFragment();
-                dateFromFragment.show(getFragmentManager(), "dateFromPicker");
+                newUpDatePicker(getString(R.string.dateFromPickerReferenceId));
+                //setDateOnTextView();
+               // onDateSet(viewToInflate.findViewById(R.id.dateFromButtonId), year, month, dayOfMonth);
                 break;
 
             case R.id.dateToButtonId:
-                DialogFragment dateToFragment = new SelectDatesFragment();
-                dateToFragment.show(getFragmentManager(), "dateToPicker");
+                newUpDatePicker(getString(R.string.dateToPickerReferenceId));
+              //  onDateSet(viewToInflate.findViewById(R.id.dateToButtonId), year, month, dayOfMonth);
                 break;
         }
     }
 
 
+    //To create a new date picker
+    public void newUpDatePicker(String datePickerId){
+
+        Calendar myCalendar = Calendar.getInstance();
+        DatePickerDialog datePicker = new DatePickerDialog( getContext(), dateListener, myCalendar
+                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH));
+
+        datePicker.getDatePicker().setTag(datePickerId);
+        datePicker.show();
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-------- Methods relating to text views ----------
+
+
+
+
     //To get back first date selected by the user.
     public String getDateFrom() {
-        TextView firstDate = viewToInflate.findViewById(R.id.dateFromEditTextId);
-        String dateFrom = firstDate.getText().toString();
+//        firstDate = viewToInflate.findViewById(R.id.dateFromEditTextId);
+        String dateFrom = firstDateTextView.getText().toString();
         return dateFrom;
+
+
     }
 
     //To get back second date selected by the user.
     public String getDateTo() {
-        TextView secondDate = viewToInflate.findViewById(R.id.dateToEditTextId);
-        String dateTo = secondDate.getText().toString();
+//        secondDate = viewToInflate.findViewById(R.id.dateToEditTextId);
+        String dateTo = secondDateTextView.getText().toString();
         return dateTo;
-    }
-
-
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final Calendar c = Calendar.getInstance();
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH);
-        int day = c.get(Calendar.DAY_OF_MONTH);
-
-        return new DatePickerDialog(getActivity(), this, year, month, day);
 
     }
 
 
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        Integer integerYear = (Integer) year;
-        String stringYear = integerYear.toString();
 
-
-    }
 }

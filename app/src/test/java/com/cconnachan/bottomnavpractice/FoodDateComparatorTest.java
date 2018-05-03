@@ -19,7 +19,10 @@ public class FoodDateComparatorTest {
     }
 
 
-
+    @Test
+    public void canTurnIntToStringDate(){
+        assertEquals("1/1/2017", FoodDateComparator.turnIntToStringDate(2017, 01, 01));
+    }
 
 }
 

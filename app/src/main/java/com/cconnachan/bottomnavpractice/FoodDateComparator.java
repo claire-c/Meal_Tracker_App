@@ -51,5 +51,19 @@ public class FoodDateComparator implements Comparator<Food> {
 
         return dateToReturn;
     }
+
+
+    public static String turnIntToStringDate(int year, int month, int day){
+        Integer integerYear = (Integer) year;
+        Integer integerMonth = (Integer) month;
+        Integer integerDay = (Integer) day;
+
+        String stringYear = integerYear.toString();
+        String stringMonth = integerMonth.toString();
+        String stringDay = integerDay.toString();
+
+        String dateToReturn = stringDay + "/" + stringMonth + "/" + stringYear;
+        return dateToReturn;
+    }
 }
 

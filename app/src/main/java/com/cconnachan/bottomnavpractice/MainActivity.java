@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
-        //todo load stuff
 
         loadFragment(new HomeFragment());
     }
@@ -71,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public void onFragmentInteraction(Uri uri) {
         //empty
     }
+
 
 
 }
