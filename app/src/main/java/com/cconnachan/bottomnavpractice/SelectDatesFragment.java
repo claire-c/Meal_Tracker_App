@@ -1,8 +1,11 @@
 package com.cconnachan.bottomnavpractice;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -10,14 +13,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
-public class SelectDatesFragment extends Fragment implements View.OnClickListener{
+public class SelectDatesFragment extends DialogFragment implements View.OnClickListener, DatePickerDialog.OnDateSetListener {
 
     View viewToInflate;
+    Bundle savedInstanceState;
 
     @Nullable
     @Override
@@ -33,6 +39,21 @@ public class SelectDatesFragment extends Fragment implements View.OnClickListene
 
         //END BUTTON
 
+        //FIRST DATE SELECTOR
+
+        Button firstDateSelected = viewToInflate.findViewById(R.id.dateFromButtonId);
+        firstDateSelected.setOnClickListener(this);
+
+        //END FIRST DATE SELECTOR
+
+        //SECOND DATE SELECTOR
+
+        Button secondDateSelected = viewToInflate.findViewById(R.id.dateToButtonId);
+        secondDateSelected.setOnClickListener(this);
+
+        //END FIRST DATE SELECTOR
+
+
         return viewToInflate;
     }
 
@@ -40,6 +61,7 @@ public class SelectDatesFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+
             case R.id.selectDatesButtonId:
 
                 FoodRecord foodRecord = Persister.load(getContext());
@@ -67,22 +89,52 @@ public class SelectDatesFragment extends Fragment implements View.OnClickListene
                 transaction.commit();
 
                 break;
+
+            case R.id.dateFromButtonId:
+                DialogFragment dateFromFragment = new SelectDatesFragment();
+                dateFromFragment.show(getFragmentManager(), "dateFromPicker");
+                break;
+
+            case R.id.dateToButtonId:
+                DialogFragment dateToFragment = new SelectDatesFragment();
+                dateToFragment.show(getFragmentManager(), "dateToPicker");
+                break;
         }
     }
 
 
     //To get back first date selected by the user.
-    public String getDateFrom(){
+    public String getDateFrom() {
         TextView firstDate = viewToInflate.findViewById(R.id.dateFromEditTextId);
         String dateFrom = firstDate.getText().toString();
         return dateFrom;
     }
 
     //To get back second date selected by the user.
-    public String getDateTo(){
+    public String getDateTo() {
         TextView secondDate = viewToInflate.findViewById(R.id.dateToEditTextId);
         String dateTo = secondDate.getText().toString();
         return dateTo;
     }
 
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        return new DatePickerDialog(getActivity(), this, year, month, day);
+
+    }
+
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Integer integerYear = (Integer) year;
+        String stringYear = integerYear.toString();
+
+
+    }
 }

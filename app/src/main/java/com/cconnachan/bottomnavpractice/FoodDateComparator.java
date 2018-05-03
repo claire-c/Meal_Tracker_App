@@ -29,5 +29,27 @@ public class FoodDateComparator implements Comparator<Food> {
         }
         return dateToReturn;
     }
+
+    public static Date turnIntToDate(int year, int month, int day){
+        Date dateToReturn = null;
+        Integer integerYear = (Integer) year;
+        Integer integerMonth = (Integer) month;
+        Integer integerDay = (Integer) day;
+
+        String stringYear = integerYear.toString();
+        String stringMonth = integerMonth.toString();
+        String stringDay = integerDay.toString();
+
+        String stringDate = stringDay + "/" + stringMonth + "/" + stringYear;
+
+        try {
+            dateToReturn = new SimpleDateFormat("dd/MM/yyyy", Locale.UK).parse(stringDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+
+        }
+
+        return dateToReturn;
+    }
 }
 
