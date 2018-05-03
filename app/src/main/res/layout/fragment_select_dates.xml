@@ -25,13 +25,13 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Date from:"
         android:inputType="date"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectDatesTextViewId" />
+        app:layout_constraintTop_toBottomOf="@+id/dateFromButtonId" />
 
     <EditText
         android:id="@+id/dateToEditTextId"
@@ -39,13 +39,13 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Date to:"
         android:inputType="date"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateFromEditTextId" />
+        app:layout_constraintTop_toBottomOf="@+id/dateToButtonId" />
 
     <Button
         android:id="@+id/selectDatesButtonId"
@@ -58,7 +58,7 @@
         android:layout_marginStart="8dp"
         android:background="@color/button_bg_colour"
         android:padding="20dp"
-        android:text="Show me my food"
+        android:text="@string/dateselector_show_food"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,9 +72,12 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:padding="15dp"
+        android:background="@color/select_dates_button"
+        android:textSize="20dp"
         android:text="date from"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateToEditTextId" />
+        app:layout_constraintTop_toBottomOf="@+id/selectDatesTextViewId" />
 
     <Button
         android:id="@+id/dateToButtonId"
@@ -83,8 +86,11 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:padding="15dp"
+        android:background="@color/select_dates_button"
+        android:textSize="20dp"
         android:text="Date To"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateFromButtonId" />
+        app:layout_constraintTop_toBottomOf="@+id/dateFromEditTextId" />
 
 </android.support.constraint.ConstraintLayout>

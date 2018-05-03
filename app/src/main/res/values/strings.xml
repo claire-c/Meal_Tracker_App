@@ -15,6 +15,7 @@
     <string name="addfood_input_date">Date to log</string>
     <string name="addfood_toast_confirmation">Your food is added!</string>
     <string name="fooddetail_remove_toast_confirmation">Meal removed from log!</string>
+    <string name="dateselector_show_food">Show me my meals</string>
     <string name="home_breakfasts"> breakfasts logged</string>
     <string name="home_lunches"> lunches logged</string>
     <string name="home_dinners"> dinners logged</string>

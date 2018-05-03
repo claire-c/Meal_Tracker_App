@@ -8,4 +8,5 @@
     <color name="main_activity_bg_colour">#DDDEDE</color>
     <color name="button_bg_colour">#A5C05B</color>
     <color name="copy_text">#505160</color>
+    <color name="select_dates_button">#7BA4A8</color>
 </resources>
