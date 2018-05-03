@@ -110,6 +110,7 @@ public class FoodRecord implements Serializable{
 
     public ArrayList<Food> dateSortedLoggedFood() {
         Collections.sort(loggedFood, new FoodDateComparator());
+        Collections.reverse(loggedFood);
         return loggedFood;
     }
 
@@ -123,6 +124,7 @@ public class FoodRecord implements Serializable{
                 foodBetweenDates.add(food);
             }
         }
+        Collections.reverse(foodBetweenDates);
         return foodBetweenDates;
     }
 }
