@@ -28,7 +28,7 @@ I wrote and tested my Java classes in around half a day, leaving me the rest of 
 
 ## What I learned
 
-As I had decided to use a bottom navigational menu, I spent a significant amount of the week learning how to build an app using a bottom nav with [fragments](https://developer.android.com/guide/components/fragments)].
+As I had decided to use a bottom navigational menu, I spent a significant amount of the week learning how to build an app using a bottom nav with [fragments](https://developer.android.com/guide/components/fragments).
 
 I built the entire application using fragments instead of activities.  As well as this, I learned about:
 - Java date class
