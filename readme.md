@@ -48,3 +48,5 @@ This was a different process to my [Ruby web application](https://github.com/cla
 ## If I had more time
 
 As I spent the week learning fragments, I did not have enough time to explore databases. I would have liked to explore SQLite as a solution to data persistence.
+
+You can read more about my experiences building this app [via my Linkedin article.](https://www.linkedin.com/pulse/weeks-8-9-building-android-app-claire-connachan/) 
