@@ -17,20 +17,18 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class AddFoodFragment extends Fragment implements View.OnClickListener{
+public class AddFoodFragment extends Fragment implements View.OnClickListener {
 
     Spinner spinner;
     ArrayAdapter<CharSequence> spinnerAdapter;
     View viewToInflate;
-    String mealTypeSelected;
+    String mealTypeSelected = null;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         viewToInflate = inflater.inflate(R.layout.fragment_add_food, null);
-
-        mealTypeSelected = null;
 
         //SPINNER
 
@@ -73,7 +71,6 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
     }
 
 
-
     //For button onClick
     @Override
     public void onClick(View view) {
@@ -94,14 +91,14 @@ public class AddFoodFragment extends Fragment implements View.OnClickListener{
     }
 
     //To get back food name input from user.
-    public String getFoodName(){
+    public String getFoodName() {
         TextView name = viewToInflate.findViewById(R.id.foodInputTextViewId);
         String foodName = name.getText().toString();
         return foodName;
     }
 
     //To get back food date input from user.
-    public String getFoodDate(){
+    public String getFoodDate() {
         TextView date = viewToInflate.findViewById(R.id.dateInputTextViewId);
         String foodDate = (String) date.getText().toString();
         return foodDate;
